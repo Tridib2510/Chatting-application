@@ -1,5 +1,6 @@
-const socket=io()
 const user=prompt('Enter your usename')
+const socket=io()
+
 
 socket.on('receiveMessage',(message,sender)=>{
     appendMessage(message, sender);
