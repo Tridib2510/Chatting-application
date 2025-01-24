@@ -1,12 +1,21 @@
-const user=prompt('Enter your usename')
+var user=prompt('Enter your usename')
 const socket=io()
 
 
+
+socket.on('connectionEstablished',users=>{
+    
+    console.log(users)
+
+
+while(users.includes(user)){
+    user=prompt('This username is taken please choose another')
+}
 socket.on('receiveMessage',(message,sender)=>{
     appendMessage(message, sender);
 })
 
-function sendMessage() {
+const button=document.getElementById('button').addEventListener('click',()=>{
     const userInput = document.getElementById('user-message').value;
     if (!userInput.trim()) return;
     
@@ -18,14 +27,14 @@ function sendMessage() {
     document.getElementById('user-message').value = '';
 
     
-}
+})
 
 function appendMessage(message, sender) {
     const chatBox = document.getElementById('chatbox');
     const messageDiv = document.createElement('div');
    var speaker=sender
-    if(sender===user){
-    console.log('Test case 1 passed')    
+    if(sender==user){
+       
         messageDiv.style.textAlign='right'
         speaker='You'
     }
@@ -39,3 +48,9 @@ function appendMessage(message, sender) {
     
     
 }
+})
+socket.on('connect',()=>{
+    socket.emit('newSocket',user)
+})
+
+

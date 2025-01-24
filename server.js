@@ -2,6 +2,8 @@ const express=require('express')
 
 const {Server}=require('socket.io')
 
+const users=[]
+
 const app=express()
 
 app.use(express.static('FrontEnd'))
@@ -19,7 +21,19 @@ const io=new Server(server)
 
 io.on('connection',socket=>{
     socket.on('sendMessage',(message,sender)=>{
+        
         socket.broadcast.emit('receiveMessage',message,sender)
+    })
+    socket.on('newSocket',(user)=>{
+       
+        socket.emit('connectionEstablished',users)
+        users.push(user)
+      //  console.log(users)
+    })
+   
+    socket.on('disconnect',(user)=>{
+        users.pop(user)
+        
     })
 })
 
