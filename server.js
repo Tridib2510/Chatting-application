@@ -13,7 +13,9 @@ app.use(express.static('./public'))
 
 
 app.route('/').get((req,res)=>{
-   return res.static()
+   return res.status(200).json({
+    "status":"success"
+   })
 })
 
 
