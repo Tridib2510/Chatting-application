@@ -9,10 +9,7 @@ const app=express()
 app.use(express.static('FrontEnd'))
 
 app.route('/').get((req,res)=>{
-    return res.status(200).json({
-        "status":"success"
-    })
-    //return res.status(200).sendFile('index.html',{root:"FrontEnd"})
+    return res.status(200).sendFile('index.html',{root:"FrontEnd"})
 })
 
 
