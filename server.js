@@ -12,12 +12,6 @@ app.use(express.static('./public'))
 
 
 
-// app.route('/').get((req,res)=>{
-//  return res.status(200).json({
-//     "status":"success"
-//  })
-// })
-
 
 const http=require('http')
 
