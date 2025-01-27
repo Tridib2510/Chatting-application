@@ -13,7 +13,9 @@ const app=express()
 app.use(express.static('./public'))
 
 app.route('/').get((req,res)=>{
-    return res.send(data)
+    return res.json({
+        data:data
+    })
 })
 
 
