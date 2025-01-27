@@ -1,5 +1,5 @@
 var user=prompt('Enter your usename')
-const socket=io('https://chatting-application-n1xs.vercel.app/socket.io/socket.io.js')
+const socket=io('https://chatting-application-red.vercel.app/')
 
 
 
