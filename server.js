@@ -6,7 +6,11 @@ const users=[]
 
 const app=express()
 
-app.use(express.static('FrontEnd'))
+app.use(express.static('./public'))
+
+app.route('/').get((req,res)=>{
+    return res.status(200).sendFile('index.html',{root:'public'})
+})
 
 
 const http=require('http')
