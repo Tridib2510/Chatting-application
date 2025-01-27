@@ -4,18 +4,16 @@ const {Server}=require('socket.io')
 
 const fs=require('fs')
 
-
 const users=[]
 
 const app=express()
 
 app.use(express.static('./public'))
 
+
+
 app.route('/').get((req,res)=>{
-   return res.status(200).json({
-    "status":"success",
-    "data":"help"
-   })
+   return res.static()
 })
 
 
