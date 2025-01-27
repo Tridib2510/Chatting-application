@@ -4,7 +4,6 @@ const {Server}=require('socket.io')
 
 const fs=require('fs')
 
-const data=fs.readFileSync('./public/index.html')
 
 const users=[]
 
@@ -15,7 +14,7 @@ app.use(express.static('./public'))
 app.route('/').get((req,res)=>{
    return res.status(200).json({
     "status":"success",
-    "data":data
+    "data":"help"
    })
 })
 
