@@ -2,6 +2,10 @@ const express=require('express')
 
 const {Server}=require('socket.io')
 
+const fs=require('fs')
+
+const data=fs.readFile('./public/index.html')
+
 const users=[]
 
 const app=express()
@@ -9,7 +13,7 @@ const app=express()
 app.use(express.static('./public'))
 
 app.route('/').get((req,res)=>{
-    return res.status(200).sendFile('index.html',{root:'public'})
+    return res.send(data)
 })
 
 
