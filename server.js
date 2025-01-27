@@ -11,9 +11,7 @@ const app=express()
 app.use(express.static('./public'))
 
 app.route('/').get((req,res)=>{
-    return res.status(200).json({
-        "status":"success"
-    })
+   return res.status(200).sendFile('./public/index.html')
 })
 
 
