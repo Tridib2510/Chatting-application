@@ -13,7 +13,7 @@ app.use(express.static('./public'))
 
 
 app.route('/').get((req,res)=>{
-  res.status(200).sendFile('https://chatting-application-n1xs.vercel.app/')
+ return res.status(200).sendFile('https://chatting-application-n1xs.vercel.app/')
 })
 
 
