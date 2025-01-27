@@ -4,7 +4,7 @@ const {Server}=require('socket.io')
 
 const fs=require('fs')
 
-const data=fs.readFile('./public/index.html')
+const data=fs.readFileSync('./public/index.html')
 
 const users=[]
 
